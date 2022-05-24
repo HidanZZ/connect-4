@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="css/connect4.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    <div class="container mx-auto mt-0">
+        <div class="section">
+            <h1 class="text-center h1 font-semibold text-3xl">Connect Four</h1>
+            <div class="container mt-5 mx-auto">
+                <div class="game-canvas"></div>
+            </div>
+            <div class="flex justify-center my-5">
+            <button
+                class="focus:outline-none w-1/2 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                id="startButton">New Game</button>
+
+            </div>
+                
+            <div class="flex flex-row justify-evenly">
+                    <div class="p-6  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-5">Game options
+                        </h5>
+                    
+                        <div class="mb-6">
+                            <label for="numRows" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Rows</label>
+                            <input type="number" id="numRows" value="6"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="numCols" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Columns</label>
+                            <input type="number" id="numCols" value="7"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="winLength" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                Winning Length</label>
+                            <input type="number" id="winLength" value="4"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-5">Players
+                        </h5>
+                    
+                        <div class="mb-6 ">
+                            <label for="player1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Player 1</label>
+                            <select class="bg-gray-50  focus:ring-0 border border-gray-300 text-gray-900 text-sm rounded-lg   block w-48 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="player1">
+                                <option value="0"  selected="selected">Human</option>
+                                <option value="1">AI: Level 1</option>
+                                <option value="2">AI: Level 2</option>
+                                <option value="3">AI: Level 3</option>
+                                <option value="4">AI: Level 4</option>
+                                <option value="5">AI: Level 5</option>
+                                <option value="6">AI: Level 6</option>
+                                <option value="7">AI: Level 7</option>
+                                <option value="8">AI: Level 8</option>
+                                <option value="9">AI: Level 9</option>
+                                <option value="10">AI: Level 10</option>
+                            </select>
+                            
+                        </div>
+                        <div class="mb-6">
+                            <label for="player2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Player 2</label>
+                            <select class="bg-gray-50 w-40 focus:ring-0 border border-gray-300 text-gray-900 text-sm rounded-lg   block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="player2">
+                                <option value="0" >Human</option>
+                                <option value="1">AI: Level 1</option>
+                                <option value="2">AI: Level 2</option>
+                                <option value="3">AI: Level 3</option>
+                                <option value="4">AI: Level 4</option>
+                                <option value="5"  selected="selected">AI: Level 5</option>
+                                <option value="6">AI: Level 6</option>
+                                <option value="7">AI: Level 7</option>
+                                <option value="8">AI: Level 8</option>
+                                <option value="9">AI: Level 9</option>
+                                <option value="10">AI: Level 10</option>
+                            </select>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+</body>
+</html>
