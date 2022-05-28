@@ -1,0 +1,23 @@
+p {
+  text-align: left; }
+
+canvas {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #cacaca;
+  transition: all 0.1s; }
+
+canvas:hover {
+  cursor: pointer; }
+
+.section {
+  max-width: 1000px; }
+
+#startButton {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto; }
+
+/*# sourceMappingURL=connect4.css.map */
